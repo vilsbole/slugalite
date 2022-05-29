@@ -5,7 +5,7 @@ import { getCards } from "../api";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 const CardList = forwardRef(({ data }, ref) => (
-  <div ref={ref}>
+  <div ref={ref} style={{ display: "flex", flexDirection: "column" }}>
     {data.map((d, idx) => (
       <Card key={idx} data={d} />
     ))}
@@ -41,10 +41,10 @@ export const CardsView = () => {
   return (
     <>
       <h1>
-        <Link to="/">/</Link> &gt; Cards
+        <Link to="/">Home</Link> / Cards
       </h1>
       <button onClick={fetchCards}>Reveal Cards</button>
-      <div>
+      <div style={{ marginTop: "1em" }}>
         <SwitchTransition mode="out-in">
           <CSSTransition
             nodeRef={transitionRef}
