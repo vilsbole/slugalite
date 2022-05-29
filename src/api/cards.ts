@@ -15,9 +15,19 @@ export const getCard = (slug: string) => {
 export const getCards = (slugs: string[]) => {
   const query = `query($slugs: [String!]) {
     cards(slugs: $slugs) {
+      age
       name
       rarity
-      canBuy
+      team
+      player {
+        age
+        country {
+          code
+          slug
+        }
+      }
+      pictureUrl
+      position
     }
   }`;
 

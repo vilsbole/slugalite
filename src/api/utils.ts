@@ -13,7 +13,7 @@ const gqlRequestOptions = ({ query, variables }: GQLRequest) => ({
   body: JSON.stringify({ query, variables }),
 });
 
-export const gqlRequest = ({ query, variables }: GQLRequest) =>
+export const gqlRequest = <T>({ query, variables }: GQLRequest): Promise<T> =>
   fetch(API_URL, gqlRequestOptions({ query, variables }))
     .then((res) => res.json())
     .then(({ data }) => data.cards);

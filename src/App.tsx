@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Card, Cards } from "./components";
+import { Cards } from "./components";
 
 function Home() {
   return (
