@@ -1,7 +1,7 @@
-const API_URL = "/graphql";
+import { gqlRequest } from "./utils";
 
 export const getCard = (slug: string) => {
-  const query = `query($slug:String!) {
+  const query = `query($slug: String!) {
     card(slug: $slug) {
       name
       rarity
@@ -9,11 +9,17 @@ export const getCard = (slug: string) => {
     }
   }`;
 
-  return fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ query, variables: { slug } }),
-  });
+  return gqlRequest({ query, variables: { slug } });
+};
+
+export const getCards = (slugs: string[]) => {
+  const query = `query($slugs: [String!]) {
+    cards(slugs: $slugs) {
+      name
+      rarity
+      canBuy
+    }
+  }`;
+
+  return gqlRequest({ query, variables: { slugs } });
 };

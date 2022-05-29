@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Card } from "./Card";
+import { getCards } from "../api";
 
 export const Cards = () => {
-  const [slugs, setSlugs] = useState<string[]>([]);
+  const [data, setData] = useState<Record<string, unknown>[]>([]);
   const { cardIds } = useParams();
 
   useEffect(() => {
     const tmp = cardIds?.split(",") || [];
-    console.log("Effect", cardIds, tmp);
     if (tmp.length <= 0) {
       return;
     }
-    setSlugs(tmp);
+    getCards(tmp).then((cards) => setData(cards));
   }, [cardIds]);
-
-  const cards = slugs.map((slug) => <Card data={slug} />);
 
   return (
     <>
-      <h1>Cards</h1>
-      <div>{cards}</div>
+      <h1>
+        <Link to="/">/</Link> &gt; Cards
+      </h1>
+      <div>
+        {data ? data.map((d, idx) => <Card key={idx} data={d} />) : "Loading"}
+      </div>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Card = () => {
+export const Card = ({ data }) => {
   return (
     <>
       <div>
@@ -8,7 +8,6 @@ export const Card = () => {
           <li>Name + pic</li>
           <li>Season</li>
           <li>Scarcity</li>
-          <li>Season</li>
           <li>Team name & picture</li>
           <li>Shirt Number</li>
           <li>Age</li>
