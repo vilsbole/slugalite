@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Cards } from "./components";
+import { CardsView } from "./views";
 
 function Home() {
   return (
@@ -24,8 +24,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="cards" element={<Cards />}>
-          <Route path=":cardIds" element={<Cards />} />
+        <Route path="cards" element={<CardsView />}>
+          <Route path=":cardIds" element={<CardsView />} />
         </Route>
       </Routes>
     </Router>
