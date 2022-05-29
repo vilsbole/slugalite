@@ -1,6 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app) {
+  console.log("GRAPHQL PROXY");
   app.use(
     "/graphql",
     createProxyMiddleware({
