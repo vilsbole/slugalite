@@ -41,7 +41,7 @@ export const CardsView = () => {
   return (
     <>
       <h1>
-        <Link to="/">Home</Link> / Cards
+        <Link to="/">.</Link> / Cards
       </h1>
       <button onClick={fetchCards}>Reveal Cards</button>
       <div style={{ marginTop: "1em" }}>

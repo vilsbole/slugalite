@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const HomeView = () => {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>Router Demo</h1>
       <div>
         <Link to="/cards/marco-verratti-2021-unique-1">Single Card</Link>
       </div>
